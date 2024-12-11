@@ -1,0 +1,23 @@
+name: sast
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  bandit:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      ############## Version 1 ##############
+      #- name: Run bandit
+      #  uses: shundor/python-bandit-scan@v1.0
+      #  with: 
+      #    path: "."
+      #    exit_zero: true
+      #######################################
